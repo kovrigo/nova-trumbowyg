@@ -1,5 +1,7 @@
 <template>
-    <span>{{ field.value }}</span>
+	<div class="text-center">
+    	<boolean-icon :value="field.value" />
+  	</div>
 </template>
 
 <script>
