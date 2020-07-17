@@ -11143,7 +11143,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "text-center" },
+    { class: "text-" + _vm.field.textAlign },
     [_c("boolean-icon", { attrs: { value: _vm.field.value } })],
     1
   )

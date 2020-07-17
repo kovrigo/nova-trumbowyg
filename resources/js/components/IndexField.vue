@@ -1,5 +1,5 @@
 <template>
-	<div class="text-center">
+	<div :class="`text-${field.textAlign}`">
     	<boolean-icon :value="field.value" />
   	</div>
 </template>
