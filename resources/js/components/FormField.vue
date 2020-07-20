@@ -2,7 +2,7 @@
     <default-field :field="field" :full-width-content="field.fullWidth">
         <template slot="field">
             <div :class="[errorClasses, errorClasses.length ? 'border' : '']" @keydown.stop>
-                <trumbowyg v-model="value" :config="field.options"></trumbowyg>
+                <trumbowyg v-model="value" :config="field.options" :disabled="isReadonly"></trumbowyg>
             </div>
 
             <p v-if="hasError" class="my-2 text-danger">

@@ -41336,7 +41336,7 @@ var render = function() {
           },
           [
             _c("trumbowyg", {
-              attrs: { config: _vm.field.options },
+              attrs: { config: _vm.field.options, disabled: _vm.isReadonly },
               model: {
                 value: _vm.value,
                 callback: function($$v) {
