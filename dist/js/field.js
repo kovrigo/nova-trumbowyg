@@ -11338,6 +11338,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -41323,38 +41324,57 @@ var render = function() {
     "default-field",
     { attrs: { field: _vm.field, "full-width-content": _vm.field.fullWidth } },
     [
-      _c("template", { slot: "field" }, [
-        _c(
-          "div",
-          {
-            class: [_vm.errorClasses, _vm.errorClasses.length ? "border" : ""],
-            on: {
-              keydown: function($event) {
-                $event.stopPropagation()
-              }
-            }
-          },
-          [
-            _c("trumbowyg", {
-              attrs: { config: _vm.field.options, disabled: _vm.isReadonly },
-              model: {
-                value: _vm.value,
-                callback: function($$v) {
-                  _vm.value = $$v
+      _c(
+        "template",
+        { slot: "field" },
+        [
+          _vm.isReadonly
+            ? _c("excerpt", {
+                staticClass: "trumbowyg-details w-full pt-2",
+                attrs: {
+                  content: _vm.field.value,
+                  "should-show": _vm.field.shouldShow
+                }
+              })
+            : _c(
+                "div",
+                {
+                  class: [
+                    _vm.errorClasses,
+                    _vm.errorClasses.length ? "border" : ""
+                  ],
+                  on: {
+                    keydown: function($event) {
+                      $event.stopPropagation()
+                    }
+                  }
                 },
-                expression: "value"
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.hasError
-          ? _c("p", { staticClass: "my-2 text-danger" }, [
-              _vm._v("\n            " + _vm._s(_vm.firstError) + "\n        ")
-            ])
-          : _vm._e()
-      ])
+                [
+                  _c("trumbowyg", {
+                    attrs: {
+                      config: _vm.field.options,
+                      disabled: _vm.isReadonly
+                    },
+                    model: {
+                      value: _vm.value,
+                      callback: function($$v) {
+                        _vm.value = $$v
+                      },
+                      expression: "value"
+                    }
+                  })
+                ],
+                1
+              ),
+          _vm._v(" "),
+          _vm.hasError
+            ? _c("p", { staticClass: "my-2 text-danger" }, [
+                _vm._v("\n            " + _vm._s(_vm.firstError) + "\n        ")
+              ])
+            : _vm._e()
+        ],
+        1
+      )
     ],
     2
   )
